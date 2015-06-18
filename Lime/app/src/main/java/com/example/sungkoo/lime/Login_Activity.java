@@ -2,14 +2,18 @@ package com.example.sungkoo.lime;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,7 +24,8 @@ public class Login_Activity extends ActionBarActivity {
     TabWidget tabs;
     ImageView Pro_Image;
     protected static final int REQ_CODE_PICK_PICTURE=0;
-
+    ListView listView1;
+    IconTextListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,6 +54,25 @@ public class Login_Activity extends ActionBarActivity {
         tabSpec3.setIndicator(tabwidget03);
         tabSpec3.setContent(R.id.tab3);
         tabHost.addTab(tabSpec3);
+        // 리스트뷰 객체 참조
+        listView1 = (ListView) findViewById(R.id.listView1);
+        // 어댑터 객체 생성
+        adapter = new IconTextListAdapter(this);
+        // 아이템 데이터 만들기
+        Resources res = getResources();
+        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "Hwang Youji", "student", "age: 22"));
+        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "lee seongkoo", "student", "age: 25"));
+        // 리스트뷰에 어댑터 설정
+        listView1.setAdapter(adapter);
+        // 새로 정의한 리스너로 객체를 만들어 설정
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                IconTextItem curItem = (IconTextItem) adapter.getItem(position);
+                String[] curData = curItem.getData();
+                Toast.makeText(getApplicationContext(), "Selected : " + curData[0], Toast.LENGTH_LONG).show();
+            }
+        });
 
         Pro_Image = (ImageView) findViewById(R.id.Pro_Image);
 

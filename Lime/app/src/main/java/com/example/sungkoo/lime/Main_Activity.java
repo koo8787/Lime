@@ -6,26 +6,30 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
 
 
 public class Main_Activity extends ActionBarActivity {
-
+    EditText LoginidEdit;
+    EditText LoginPassswordEdit;
+    String LoginidString;
+    String LoginPassWordString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "dAw3ryusMc2mYss53iJ17bHk8JC8cAB36Jo7Bovk", "l93NE4dRQdbqsJor7WmFlPmpGIdCgZPWWfZoTZri");
-        ParseObject Profile = new ParseObject("Profile");
-        Profile.put("Name","Koo");
-        Profile.saveInBackground();
     }
 
     public void OnButtonLoginClicked(View v){
+        LoginidEdit = (EditText) findViewById(R.id.usernameEntry);
+        LoginidString = LoginidEdit.getText().toString();
+        LoginPassswordEdit = (EditText) findViewById(R.id.passwordEntry);
+        LoginPassWordString = LoginPassswordEdit.getText().toString();
         Toast.makeText(getApplicationContext(),"Sign in", Toast.LENGTH_LONG).show();
         Intent intent;
         intent = new Intent(getApplicationContext(), Login_Activity.class);
@@ -33,7 +37,7 @@ public class Main_Activity extends ActionBarActivity {
     }
     public void onButtonExitClicked(View v){
         Toast.makeText(getApplicationContext(),"Sign up", Toast.LENGTH_LONG).show();
-        Intent intent;
+            Intent intent;
         intent = new Intent(getApplicationContext(), Signup_Activity.class);
         startActivity(intent);
     }

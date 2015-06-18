@@ -99,13 +99,32 @@
             android:textSize="16dp"
             />
         <EditText
-            android:id="@+id/SignupEmailPassswordEdit"
+            android:id="@+id/SignupEmailEdit"
             android:layout_alignBaseline="@id/SignupEmailText"
-            android:layout_width="120dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:paddingLeft="135dp"
+        >
+        <Button
+            android:id="@+id/SignupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:text="회원가입"
+            android:textSize="16dp"
+            android:onClick="OnSignupButton" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
 

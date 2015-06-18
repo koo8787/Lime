@@ -1,7 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
     android:orientation="vertical"
+
     >
     <!--vertical 레이아웃 가초배치-->
 
@@ -34,11 +35,11 @@ android:layout_height="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingTop="45dp"
-
+                    android:background="#F0FFF0"
                     >
 
                     <ImageView android:id="@+id/Pro_Image"
-                        android:background="#FFD9FA"
+                        android:background="#90EE90"
                         android:layout_width="180dp"
                         android:layout_height="180dp"
                         android:verticalSpacing="10dp"
@@ -133,10 +134,11 @@ android:layout_height="match_parent"
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:background="#F0FFF0">
 
                     <ListView
-                        android:id="@+id/lv_question"
+                        android:id="@+id/listView1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" >
                     </ListView>
@@ -146,7 +148,60 @@ android:layout_height="match_parent"
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:background="#F0FFF0">
+                <LinearLayout
+                    android:id="@+id/DeveloperInformation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="15dp"
+                    >
+                    <TextView
+                        android:id="@+id/DeveloperInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="Developer Information\n"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/DeveloperSeongkoo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="Lee Seong koo"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/DeveloperSeongkooEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="koo8787@naver.com\n"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:id="@+id/DeveloperYouji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="Hwang You ji"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/DeveloperYoujiEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="mechuri13@gmail.com"
+                        android:textSize="16dp"
+                        />
+                </LinearLayout>
 
                     <ListView
                         android:id="@+id/lv_profile"
