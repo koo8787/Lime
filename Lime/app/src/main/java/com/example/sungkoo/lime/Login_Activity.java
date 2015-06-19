@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.Toast;
+
+import com.parse.ParseObject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,7 +29,18 @@ public class Login_Activity extends ActionBarActivity {
     protected static final int REQ_CODE_PICK_PICTURE=0;
     ListView listView1;
     IconTextListAdapter adapter;
-    @Override
+    EditText nameEntrEdit;
+    EditText ageEntryEdit;
+    EditText CareerEntryEdit;
+    EditText SexEntryEdit;
+    String nameEntryString;
+    String  ageEntryEditString;
+    String CareerEntryEditString;
+    String SexEntryEditString;
+    Intent image;
+    ParseObject Profile = new ParseObject("Profile");
+
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -78,13 +92,33 @@ public class Login_Activity extends ActionBarActivity {
 
         Pro_Image.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_PICK);
-                i.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
-                i.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, REQ_CODE_PICK_PICTURE);
+                image = new Intent(Intent.ACTION_PICK);
+                image.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+                image.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(image, REQ_CODE_PICK_PICTURE);
             }
         });
     }
+
+    public void onSaveClicked() {
+        nameEntrEdit = (EditText) findViewById(R.id.nameEntry);
+        nameEntryString = nameEntrEdit.getText().toString();
+        ageEntryEdit = (EditText) findViewById(R.id. ageEntry);
+        ageEntryEditString = ageEntryEdit.getText().toString();
+        CareerEntryEdit = (EditText) findViewById(R.id.CareerEntry);
+        CareerEntryEditString = CareerEntryEdit.getText().toString();
+        SexEntryEdit = (EditText) findViewById(R.id.SexEntry);
+        SexEntryEditString = SexEntryEdit.getText().toString();
+
+        Profile.put("Name", nameEntryString);
+        Profile.put("Career", CareerEntryEditString);
+        Profile.put("Sex", SexEntryEditString);
+        Profile.put("Age",ageEntryEditString);
+        Profile.put("Image", image);
+        Profile.saveInBackground();
+    }
+
+
         protected void onActivityResult(int requestCode, int resultCode, Intent data){
            if(requestCode==REQ_CODE_PICK_PICTURE) {
                if (resultCode == Activity.RESULT_OK) {

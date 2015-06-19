@@ -127,6 +127,37 @@ android:layout_height="match_parent"
                                 android:layout_marginLeft="4dp"
                                 />
                             </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/Sex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingLeft="15dp"
+                        >
+                        <TextView
+                            android:id="@+id/SexLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:text="성 :"
+                            android:textSize="16dp"
+                            />
+                        <EditText
+                            android:id="@+id/SexEntry"
+                            android:layout_alignBaseline="@id/SexLabel"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            />
+                        <Button
+                            android:id="@+id/ProfileSignup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save"
+                            android:layout_marginLeft="120dp"
+                            android:onClick="onSaveClicked" />
+                    </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -184,6 +215,15 @@ android:layout_height="match_parent"
                         android:text="koo8787@naver.com\n"
                         android:textSize="16dp"
                         />
+                    <Button android:id="@+id/Devkoo"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Facebook"
+                        android:drawablePadding="20dp"
+                        android:onClick="onButtonClickedpage1"/>
                     <TextView
                         android:id="@+id/DeveloperYouji"
                         android:layout_width="wrap_content"
@@ -200,6 +240,17 @@ android:layout_height="match_parent"
                         android:paddingLeft="15dp"
                         android:text="mechuri13@gmail.com"
                         android:textSize="16dp"
+                        />
+
+                    <Button android:id="@+id/Devtaco"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Facebook"
+                        android:drawablePadding="20dp"
+                        android:onClick="onButtonClickedpage2"
                         />
                 </LinearLayout>
 

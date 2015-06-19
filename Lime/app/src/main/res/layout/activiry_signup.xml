@@ -54,7 +54,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            />
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +79,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            />
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout
